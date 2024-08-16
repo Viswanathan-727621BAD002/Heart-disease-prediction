@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Risk Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow-y: auto;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 500px;
+            width: 90%;
+            margin: 40px auto;
+            display: grid;
+            gap: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #00796b;
+            margin-bottom: 20px;
+        }
+        form {
+            display: grid;
+            gap: 15px;
+        }
+        label {
+            font-weight: bold;
+            color: #00796b;
+        }
+        input[type="text"], select {
+            padding: 10px;
+            border: 1px solid #b2dfdb;
+            border-radius: 5px;
+            font-size: 14px;
+            background-color: #f1f8e9;
+        }
+        input[type="submit"] {
+            background-color: #00796b;
+            color: #ffffff;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #004d40;
+        }
+        .result {
+            background-color: #e0f2f1;
+            border-radius: 5px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+        .result h2 {
+            color: #00796b;
+        }
+        .result p {
+            color: #004d40;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Heart Disease Risk Checker</h1>
+        <form method="POST">
+            <div>
+                <label>Gender:</label>
+                <select name="sex">
+                    <option value="0">Female</option>
+                    <option value="1">Male</option>
+                </select>
+            </div>
+            
+            <div>
+                <label>Age:</label>
+                <input type="text" name="age">
+            </div>
+
+            <div>
+                <label>Education Level:</label>
+                <select name="education">
+                    <option value="1">Minimal</option>
+                    <option value="2">Medium</option>
+                    <option value="3">High</option>
+                    <option value="4">Maximum</option>
+                </select>
+            </div>
+
+            <div>
+                <label>Are you a current smoker?</label>
+                <select name="currentSmoker">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+
+            <div>
+                <label>How many cigarettes per day?</label>
+                <input type="text" name="cigsPerDay">
+            </div>
+
+            <div>
+                <label>Do you take medication for blood pressure?</label>
+                <select name="bpMeds">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+
+            <div>
+                <label>Have you had a stroke?</label>
+                <select name="prevalentStroke">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+
+            <div>
+                <label>Do you have hypertension?</label>
+                <select name="prevalentHyp">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+
+            <div>
+                <label>Do you have diabetes?</label>
+                <select name="diabetes">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+
+            <div>
+                <label>Total Cholesterol Level:</label>
+                <input type="text" name="totChol">
+            </div>
+
+            <div>
+                <label>Systolic Blood Pressure:</label>
+                <input type="text" name="sysBP">
+            </div>
+
+            <div>
+                <label>Diastolic Blood Pressure:</label>
+                <input type="text" name="diaBP">
+            </div>
+
+            <div>
+                <label>What's your BMI?</label>
+                <input type="text" name="imc">
+            </div>
+
+            <div>
+                <label>What's your heart rate?</label>
+                <input type="text" name="heartRate">
+            </div>
+
+            <div>
+                <label>What's your glucose level?</label>
+                <input type="text" name="glucose">
+            </div>
+
+            <input type="submit" value="Check Risk">
+        </form>
+        {% if prediction %}
+        <div class="result">
+            <h2>Prediction result:</h2>
+            <p>{{ prediction }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
